@@ -8,9 +8,10 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./ParadoxTerminal
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -24,8 +25,6 @@ jobs:
         NUGET_AUTH_TOKEN: '%NUGET_AUTH_TOKEN%'
     - name: Install dependencies
       run: dotnet restore
-    - name: Get Project
-      run: cd ParadoxTerminal
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
