@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -11,6 +11,7 @@
     <RepositoryUrl>https://github.com/ac111897/ParadoxTerminal</RepositoryUrl>
     <PackageProjectUrl>https://github.com/ac111897/ParadoxTerminal</PackageProjectUrl>
     <Copyright>MIT (c) 2022 Bradley Grover</Copyright>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 

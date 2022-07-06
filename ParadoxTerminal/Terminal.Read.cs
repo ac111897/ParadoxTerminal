@@ -29,9 +29,6 @@ public static partial class Terminal
     // arbitary
     private static readonly TryParse<BigInteger> Big = BigInteger.TryParse;
     #endregion
-    #region Numeric Configuration
-
-    #endregion
 
     /// <summary>
     /// Reads a line of characters from the standard input and returns the data as a string

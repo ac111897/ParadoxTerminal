@@ -10,7 +10,6 @@ public static partial class Terminal
     /// <summary>
     /// Reads a <see cref="bool"/> from the standard input
     /// </summary>
-    /// <param name="showErrorMessage">Whether an error message should be displayed on failure</param>
     /// <param name="options">Bool input options</param>
     /// <returns><see cref="bool"/> from the standard input</returns>
     public static bool ReadBool(BoolStyles options = BoolStyles.AcceptLowerBool)
