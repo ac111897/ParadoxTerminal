@@ -1,5 +1,8 @@
 ﻿namespace ParadoxTerminal.Options;
 
+/// <summary>
+/// Options for numeric types in the terminal
+/// </summary>
 public class NumericOptions : TypeOptions
 {
     /// <summary>

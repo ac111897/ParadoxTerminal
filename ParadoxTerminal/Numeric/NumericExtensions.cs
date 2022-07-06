@@ -1,6 +1,6 @@
 ﻿namespace ParadoxTerminal.Numeric;
 
-public static class NumericExtensions
+internal static class NumericExtensions
 {
     public static bool IsGreaterThan<T>(this T value, T other) where T : IComparable
     {

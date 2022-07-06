@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 using ParadoxTerminal.Options;
 
 namespace ParadoxTerminal;
@@ -31,6 +32,9 @@ public class TerminalConfiguration
         InfoColor = ConsoleColor.Green,
     };
 
+    /// <summary>
+    /// Type options for reading <see cref="bool"/>
+    /// </summary>
     public TypeOptions Bool { get; } = new()
     {
         ShowErrors = true,
@@ -38,36 +42,70 @@ public class TerminalConfiguration
     };
 
     #region Integer
+
+    /// <summary>
+    /// Type options for reading <see cref="byte"/>
+    /// </summary>
     public NumericOptions UInt8 { get; } = CreateOption();
 
+    /// <summary>
+    /// Type options for reading <see cref="sbyte"/>
+    /// </summary>
     public NumericOptions Int8 { get; } = CreateOption();
 
+    /// <summary>
+    /// Type options for reading <see cref="ushort"/>
+    /// </summary>
     public NumericOptions UInt16 { get; } = CreateOption();
 
+    /// <summary>
+    /// Type options for reading <see cref="short"/>
+    /// </summary>
     public NumericOptions Int16 { get; } = CreateOption();
 
+    /// <summary>
+    /// Type options for reading <see cref="int"/>
+    /// </summary>
     public NumericOptions Int32 { get; } = CreateOption();
 
+    /// <summary>
+    /// Type options for reading <see cref="uint"/>
+    /// </summary>
     public NumericOptions UInt32 { get; } = CreateOption();
 
     /// <summary>
-    /// Options for reading the <see langword="long"/> type from the standard input
+    /// Type options for reading <see cref="long"/>
     /// </summary>
-    /// <remarks>
-    /// Applies to ReadInt64 methods
-    /// </remarks>
     public NumericOptions Int64 { get; } = CreateOption();
 
+    /// <summary>
+    /// Type options for reading <see cref="ulong"/>
+    /// </summary>
     public NumericOptions UInt64 { get; } = CreateOption();
 
+    /// <summary>
+    /// Type options for reading <see cref="BigInteger"/>
+    /// </summary>
     public NumericOptions Arbitrary { get; } = CreateOption();
 
+    /// <summary>
+    /// Type options for reading <see cref="System.Half"/>
+    /// </summary>
     public NumericOptions Half { get; } = CreateOption();
 
+    /// <summary>
+    /// Type options for reading <see cref="float"/>
+    /// </summary>
     public NumericOptions Single { get; } = CreateOption();
-
+    
+    /// <summary>
+    /// Type options for reading <see cref="double"/> 
+    /// </summary>
     public NumericOptions Double { get; } = CreateOption();
 
+    /// <summary>
+    /// Type options for reading <see cref="decimal"/>
+    /// </summary>
     public NumericOptions Decimal { get; } = CreateOption();
 
     #endregion
@@ -81,5 +119,9 @@ public class TerminalConfiguration
     /// Color to be used for printing warning from the terminal
     /// </summary>
     public ConsoleColor WarningColor { get; set; }
+
+    /// <summary>
+    /// Color to be used for printing information to the console
+    /// </summary>
     public ConsoleColor InfoColor { get; set; }
 }
