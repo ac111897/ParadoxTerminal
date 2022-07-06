@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using ParadoxTerminal.Options;
 
 namespace ParadoxTerminal;
 
@@ -7,6 +8,19 @@ namespace ParadoxTerminal;
 /// </summary>
 public class TerminalConfiguration
 {
+    private const string DefaultInRange = "You need to enter a value between {0} and {1}";
+
+    private static NumericOptions CreateOption()
+    {
+        return new NumericOptions()
+        {
+            InRange = new(2)
+            {
+                Value = DefaultInRange
+            }
+        };
+    }
+
     /// <summary>
     /// The default configuration to be used in <see cref="Terminal"/>
     /// </summary>
@@ -15,10 +29,48 @@ public class TerminalConfiguration
         ErrorColor = ConsoleColor.DarkRed,
         WarningColor = ConsoleColor.Red,
         InfoColor = ConsoleColor.Green,
-        OutOfRange = "Input must be between {0} and {1}",
-        NeedsValue = "Input was empty, try again",
-        ShowMessageOnFailure = true,
     };
+
+    public TypeOptions Bool { get; } = new()
+    {
+        ShowErrors = true,
+        OnInvalid = "You need to enter a valid boolean"
+    };
+
+    #region Integer
+    public NumericOptions UInt8 { get; } = CreateOption();
+
+    public NumericOptions Int8 { get; } = CreateOption();
+
+    public NumericOptions UInt16 { get; } = CreateOption();
+
+    public NumericOptions Int16 { get; } = CreateOption();
+
+    public NumericOptions Int32 { get; } = CreateOption();
+
+    public NumericOptions UInt32 { get; } = CreateOption();
+
+    /// <summary>
+    /// Options for reading the <see langword="long"/> type from the standard input
+    /// </summary>
+    /// <remarks>
+    /// Applies to ReadInt64 methods
+    /// </remarks>
+    public NumericOptions Int64 { get; } = CreateOption();
+
+    public NumericOptions UInt64 { get; } = CreateOption();
+
+    public NumericOptions Arbitrary { get; } = CreateOption();
+
+    public NumericOptions Half { get; } = CreateOption();
+
+    public NumericOptions Single { get; } = CreateOption();
+
+    public NumericOptions Double { get; } = CreateOption();
+
+    public NumericOptions Decimal { get; } = CreateOption();
+
+    #endregion
 
     /// <summary>
     /// Color to be used for printing errors from the terminal
@@ -30,44 +82,4 @@ public class TerminalConfiguration
     /// </summary>
     public ConsoleColor WarningColor { get; set; }
     public ConsoleColor InfoColor { get; set; }
-
-    /// <summary>
-    /// Whether an error message should be printed to the terminal when a input error occurs
-    /// </summary>
-    public bool ShowMessageOnFailure { get; set; }
-
-    private string? backingFieldOutOfRange;
-
-    /// <summary>
-    /// Message to be displayed when trying to read a value that is out of range
-    /// </summary>
-    [MaybeNull]
-    public string OutOfRange
-    {
-        get => backingFieldOutOfRange;
-        set
-        {
-            if (!value.Contains("{0}") || !value.Contains("{1}"))
-            {
-                throw new InvalidOperationException("Out of range message requires {0} and {1} to be located somewhere in the string");
-            }
-
-            backingFieldOutOfRange = value;
-        }
-    }
-
-    private string? backingFieldNeedsValue;
-
-    /// <summary>
-    /// Message to be displayed when the user input is null or empty
-    /// </summary>
-    [MaybeNull]
-    public string NeedsValue
-    {
-        get => backingFieldNeedsValue;
-        set
-        {
-            backingFieldNeedsValue = value;
-        }
-    }
 }

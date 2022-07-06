@@ -13,9 +13,9 @@ public static partial class Terminal
     /// <param name="showErrorMessage">Whether an error message should be displayed on failure</param>
     /// <param name="options">Bool input options</param>
     /// <returns><see cref="bool"/> from the standard input</returns>
-    public static bool ReadBool(bool? showErrorMessage = null, BoolStyles options = BoolStyles.AcceptLowerBool)
+    public static bool ReadBool(BoolStyles options = BoolStyles.AcceptLowerBool)
     {
-        showErrorMessage ??= Configuration.ShowMessageOnFailure;
+        bool? showErrorMessage = Configuration.Bool.ShowErrors!;
 
         return options switch // TODO: Match all styles to proper bit flags
         {
@@ -49,9 +49,9 @@ public static partial class Terminal
 
             if (input.IsEmpty || input.IsWhiteSpace())
             {
-                if (showError || Configuration.ShowMessageOnFailure)
+                if (showError || Configuration.Bool.ShowErrors)
                 {
-                    WriteLineError(Configuration.NeedsValue);
+                    WriteLineError(Configuration.Bool.OnEmpty);
                 }
                 continue;
             }
@@ -67,7 +67,7 @@ public static partial class Terminal
             }
         }
     }
-    public static bool TryCompare(ReadOnlySpan<char> input, 
+    internal static bool TryCompare(ReadOnlySpan<char> input, 
         StringComparison compare,
         bool allowNumeric,
         bool allowYesAndNo,
