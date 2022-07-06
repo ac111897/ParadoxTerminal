@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Authors>Bradley Grover</Authors>
-    <Version>1.0.0.2</Version>
+    <Version>1.0.0.3</Version>
     <Description>Terminal for performance and ease of access</Description>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/ac111897/ParadoxTerminal</RepositoryUrl>
@@ -13,6 +13,7 @@
     <Copyright>MIT (c) 2022 Bradley Grover</Copyright>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NeutralLanguage>en</NeutralLanguage>
+    <PackageReleaseNotes>Add docs</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
