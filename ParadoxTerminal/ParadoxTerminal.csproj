@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFrameworks>net6.0;net7.0;net5.0;netcoreapp3.1</TargetFrameworks>
+    <LangVersion>preview</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Authors>Bradley Grover</Authors>
@@ -15,5 +16,5 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageReleaseNotes>Add docs</PackageReleaseNotes>
   </PropertyGroup>
-
+  
 </Project>

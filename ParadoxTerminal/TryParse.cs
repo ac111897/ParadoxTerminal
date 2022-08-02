@@ -13,4 +13,4 @@ namespace ParadoxTerminal;
 /// <param name="result"></param>
 /// <returns></returns>
 internal delegate bool TryParse<TValue>(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider, out TValue result)
-    where TValue : IComparable, IComparable<TValue>, IEquatable<TValue>, ISpanFormattable, IFormattable;
+    where TValue : IComparable, IComparable<TValue>, IEquatable<TValue>, IFormattable;

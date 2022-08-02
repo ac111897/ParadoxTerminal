@@ -83,15 +83,29 @@ public class TerminalConfiguration
     /// </summary>
     public NumericOptions UInt64 { get; } = CreateOption();
 
+#if NET7_0_OR_GREATER
+    /// <summary>
+    /// Type options for reading <see cref="System.Int128"/>
+    /// </summary>
+    public NumericOptions Int128 { get; } = CreateOption();
+
+    /// <summary>
+    /// Type options for reading <see cref="System.UInt128"/>
+    /// </summary>
+    public NumericOptions UInt128 { get; } = CreateOption();
+#endif
+
     /// <summary>
     /// Type options for reading <see cref="BigInteger"/>
     /// </summary>
     public NumericOptions Arbitrary { get; } = CreateOption();
 
+#if NET5_0_OR_GREATER
     /// <summary>
     /// Type options for reading <see cref="System.Half"/>
     /// </summary>
     public NumericOptions Half { get; } = CreateOption();
+#endif
 
     /// <summary>
     /// Type options for reading <see cref="float"/>
@@ -108,7 +122,7 @@ public class TerminalConfiguration
     /// </summary>
     public NumericOptions Decimal { get; } = CreateOption();
 
-    #endregion
+#endregion
 
     /// <summary>
     /// Color to be used for printing errors from the terminal
